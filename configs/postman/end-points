@@ -1,0 +1,120 @@
+{
+	"info": {
+		"_postman_id": "a3acfba4-9667-4ee4-8ff8-59fd26b0af47",
+		"name": "Car and Auth Endpoints",
+		"description": "Colección de Postman para endpoints de autenticación y de gestión de carros",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "31878676",
+		"_collection_link": "https://yes777-6208.postman.co/workspace/test~a850cc8e-dfb4-41c3-836c-53353c3eff07/collection/31878676-a3acfba4-9667-4ee4-8ff8-59fd26b0af47?action=share&source=collection_link&creator=31878676"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Registrar nuevo usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"UsuarioEjemplo\",\n  \"username\": \"usuarioej\",\n  \"email\": \"usuario@ejemplo.com\",\n  \"password\": \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/parking/v1/auth/register"
+					},
+					"response": []
+				},
+				{
+					"name": "Iniciar sesión",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"usuario@ejemplo.com\",\n  \"password\": \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/parking/v1/auth/login"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Car",
+			"item": [
+				{
+					"name": "Listar carros",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2VhMjhjMDZiYTA4MWZhNjFmNmQ3ZGIiLCJpYXQiOjE3NDMzOTkxMTgsImV4cCI6MTc0MzQwMjcxOH0.Mu8j36mGGpVRCtAB68Ss2nc-FsBg2YzcXsUBdrCPbE8"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/parking/v1/cars"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener carro por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/parking/v1/cars/67ea29486ba081fa61f6d7e0"
+					},
+					"response": []
+				},
+				{
+					"name": "Crear nuevo carro",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2VhMjhjMDZiYTA4MWZhNjFmNmQ3ZGIiLCJpYXQiOjE3NDMzOTkxMTgsImV4cCI6MTc0MzQwMjcxOH0.Mu8j36mGGpVRCtAB68Ss2nc-FsBg2YzcXsUBdrCPbE8"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"plate\": \"Toyota\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/parking/v1/cars/"
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar carro",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:3000/car/cars/123"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
